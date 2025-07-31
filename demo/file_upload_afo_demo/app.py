@@ -245,6 +245,8 @@ def vulnerable_archive_extraction():
             with zipfile.ZipFile(str(temp_archive_path), 'r') as zip_ref:
                 for member in zip_ref.namelist():
                     # VULNERABLE: No path validation
+                    # To prevent Zip Slip attacks, validate the extraction path:
+                    # Use os.path.commonpath([EXTRACT_DIR, extract_path]) == str(EXTRACT_DIR)
                     extract_path = EXTRACT_DIR / member
                     
                     # Create parent directories
