@@ -226,8 +226,8 @@ def vulnerable_dynamic_content(content_type: str, user_data: str) -> str:
             <p><strong>Name:</strong> {user_data}</p>
             <p><strong>Status:</strong> Active User</p>
             <script>
-                // VULNERABLE: User data in JavaScript context
-                var userData = "{user_data}";
+                // Secure: User data is sanitized before embedding in JavaScript context
+                var userData = "{escape_js(user_data)}";
                 console.log("Profile loaded for: " + userData);
             </script>
         </div>
