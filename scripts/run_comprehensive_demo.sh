@@ -53,6 +53,10 @@ command_exists() {
 # Function to check if port is available
 check_port() {
     local port=$1
+    if ! command_exists nc; then
+        print_error "The 'nc' command is required but not installed. Please install 'netcat' and try again."
+        exit 1
+    fi
     if nc -z localhost "$port" 2>/dev/null; then
         return 1  # Port is in use
     else
