@@ -61,9 +61,7 @@ if ! command_exists python3.10; then
     brew install python@3.10
     
     # Create symlink for python3.10 command
-    if [[ "$ARCH" == "arm64" ]]; then
-        ln -sf /opt/homebrew/bin/python3.10 /opt/homebrew/bin/python3.10
-    else
+    if [[ "$ARCH" != "arm64" ]]; then
         ln -sf /usr/local/bin/python3.10 /usr/local/bin/python3.10
     fi
 else
