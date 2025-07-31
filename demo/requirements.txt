@@ -1,0 +1,24 @@
+# Demo Dependencies for Vulnhuntr Demo Suite
+# These packages are required to run the intentionally vulnerable demo applications
+
+# Core web frameworks
+flask>=2.0.0
+fastapi>=0.70.0
+django>=4.0.0
+aiohttp>=3.8.0
+
+# Additional dependencies
+uvicorn>=0.15.0           # ASGI server for FastAPI
+gradio>=3.0.0             # ML web interfaces with XSS demos
+jinja2>=3.0.0             # Template engine
+psutil>=5.8.0             # System information
+pyyaml>=6.0               # YAML processing (unsafe for demo)
+markdown>=3.3.0           # Markdown processing
+pydantic>=1.8.0           # Data validation
+
+# Development and testing
+requests>=2.25.0          # HTTP client for testing
+aiofiles>=0.7.0           # Async file operations
+
+# Note: These packages are only needed to run the demo applications
+# The vulnhuntr tool itself has its own dependencies defined in pyproject.toml
